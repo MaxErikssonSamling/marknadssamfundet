@@ -1,0 +1,117 @@
+media:
+  - name: article_images
+    label: Artikelbilder
+    input: assets/uploads
+    output: /assets/uploads
+    extensions: [jpg, jpeg, png, webp]
+    categories: [image]
+    rename: safe
+
+  - name: documents
+    label: Dokument och PDF
+    input: assets/documents
+    output: /assets/documents
+    extensions: [pdf]
+    categories: [document]
+    rename: safe
+
+content:
+  - name: publications
+    label: Publiceringar
+    type: collection
+    path: content/articles
+    format: json
+
+    filename:
+      template: "{year}-{month}-{day}-{primary}.json"
+      field: false
+
+    operations:
+      create: true
+      rename: false
+      delete: true
+
+    view:
+      fields: [title, published, publish_date, type, author]
+      primary: title
+      sort: [publish_date, title]
+      search: [title, excerpt, author, topic, tags]
+      default:
+        sort: publish_date
+        order: desc
+
+    fields:
+      - name: published
+        label: Publicerad
+        type: boolean
+        default: false
+        description: "Av = utkast. Slå på och spara när texten ska visas på webbplatsen."
+
+      - name: title
+        label: Rubrik
+        type: string
+        required: true
+
+      - name: publish_date
+        label: Publiceringsdatum
+        type: date
+        required: true
+
+      - name: type
+        label: Typ av publicering
+        type: select
+        required: true
+        options:
+          values: [Rapport, Analys, Opinion, Reportage, Kommentar]
+
+      - name: topic
+        label: Huvudämne
+        type: string
+        required: true
+
+      - name: author
+        label: Författare
+        type: string
+        required: true
+
+      - name: excerpt
+        label: Ingress
+        type: text
+        required: true
+
+      - name: hero_image
+        label: Huvudbild
+        type: image
+        required: true
+        options:
+          media: article_images
+
+      - name: hero_alt
+        label: Bildbeskrivning
+        type: text
+        required: true
+
+      - name: cover_image
+        label: Rapportomslag
+        type: image
+        options:
+          media: article_images
+
+      - name: pdf
+        label: Rapport som PDF
+        type: file
+        options:
+          media: documents
+
+      - name: tags
+        label: Sökord / taggar
+        type: string
+        list: true
+
+      - name: body
+        label: Artikeltext
+        type: rich-text
+        required: true
+        options:
+          format: html
+          media: article_images
