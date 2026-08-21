@@ -10,3 +10,11 @@ Redaktionell prototyp för Marknadssamfundets webbplats.
 - Animerad navigeringslinje
 - Automatisk sidomeny på större skärmar när toppmenyn scrollat bort
 - Respekterar `prefers-reduced-motion`
+
+
+## Version 4
+- Bildytor till huvudartikel, sidonyheter och artikelkort
+- Miniatyrbilder i arkivet
+- Rapportomslag för rapportsektionen
+- Huvudbild högst upp på artikelsidan
+- Sammanhållen uppsättning SVG-bilder i varumärkets färger

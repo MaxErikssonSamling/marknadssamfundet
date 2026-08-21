@@ -195,3 +195,106 @@ body{
   }
   .js-ready .reveal{opacity:1;transform:none}
 }
+
+
+/* ---- Version 4: bildytor för artiklar och rapporter ---- */
+.story-image,.latest-thumb,.archive-thumb,.opinion-image,.report-cover,.article-hero{
+  display:block;
+}
+.story-image{
+  overflow:hidden;
+  border-radius:18px;
+  margin-bottom:18px;
+  background:#e8dfcf;
+  box-shadow:0 12px 28px rgba(11,39,68,.08);
+}
+.story-image-hero{
+  margin-bottom:24px;
+}
+.story-image img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1), filter .35s ease;
+}
+.side-story .story-image img{
+  aspect-ratio:3/2;
+}
+.story-image:hover img,.opinion-image:hover img,.latest-thumb:hover img,.archive-thumb:hover img,.report-cover:hover img{
+  transform:scale(1.035);
+  filter:saturate(1.04);
+}
+.latest-item{
+  grid-template-columns:50px 140px 1fr auto;
+}
+.latest-thumb{
+  overflow:hidden;
+  border-radius:12px;
+  background:#e8dfcf;
+}
+.latest-thumb img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+.report-cover{
+  margin:-18px -18px 18px;
+  overflow:hidden;
+  background:#f5efe4;
+  border-bottom:1px solid var(--rule);
+}
+.report-cover img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+}
+.opinion-image{
+  display:block;
+  overflow:hidden;
+  border-radius:14px;
+  margin:-24px -24px 16px;
+  background:#e8dfcf;
+}
+.opinion-image img{
+  width:100%;
+  aspect-ratio:3/2;
+  object-fit:cover;
+}
+.archive-item{
+  grid-template-columns:180px 1fr auto;
+  align-items:start;
+}
+.archive-thumb{
+  overflow:hidden;
+  border-radius:14px;
+  background:#e8dfcf;
+}
+.archive-thumb img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+.article-hero{
+  max-width:1040px;
+  margin-bottom:12px;
+}
+.article-hero img{
+  width:100%;
+  border-radius:20px;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  box-shadow:0 14px 36px rgba(11,39,68,.11);
+}
+@media(max-width:900px){
+  .latest-item{grid-template-columns:40px 120px 1fr}
+  .latest-item .meta{grid-column:3}
+  .archive-item{grid-template-columns:160px 1fr}
+  .archive-item .meta{grid-column:2}
+}
+@media(max-width:640px){
+  .latest-item{grid-template-columns:40px 1fr}
+  .latest-thumb{grid-column:2}
+  .latest-item .meta{grid-column:2}
+  .archive-item{grid-template-columns:1fr}
+  .archive-thumb{max-width:320px}
+}

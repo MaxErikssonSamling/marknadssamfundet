@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#fffdf8"/>
+  <rect x="0" y="0" width="800" height="1000" fill="#0b2744"/>
+  <rect x="58" y="58" width="684" height="884" fill="#fffdf8"/>
+  <rect x="58" y="58" width="684" height="140" fill="#0b2744"/>
+  <text x="88" y="146" fill="#f3d792" font-family="Georgia, serif" font-size="34" letter-spacing="5">FÖRETAGANDE</text>
+  <rect x="88" y="275" width="490" height="28" rx="10" fill="#0b2744"/>
+  <rect x="88" y="322" width="530" height="28" rx="10" fill="#0b2744"/>
+  <text x="88" y="670" fill="#b98a2c" font-family="Georgia, serif" font-size="28" letter-spacing="3">MARKNADSSAMFUNDET</text>
+  <g opacity=".95">
+    <path d="M88 480 L300 390 L470 460 L640 330 L640 770 L88 770 Z" fill="#b98a2c"/>
+    <path d="M88 770 L88 560 L250 460 L430 540 L640 410 L640 770 Z" fill="#0b2744" opacity=".18"/>
+  </g>
+  <text x="88" y="260" fill="#0b2744" font-family="Georgia, serif" font-size="26">Regelbördan och de</text>
+  <text x="88" y="307" fill="#0b2744" font-family="Georgia, serif" font-size="26">mindre företagen</text>
+</svg>
