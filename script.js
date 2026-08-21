@@ -89,3 +89,8 @@ if (masthead && mainNavLinks.length) {
   window.addEventListener('scroll', updateRail, { passive: true });
   window.addEventListener('resize', updateRail);
 }
+
+
+// Öppna arkivet med ett typfilter, t.ex. arkiv.html?typ=rapport.
+const typeParam=new URLSearchParams(location.search).get('typ');
+if(typeParam&&filters.length){const target=filters.find(btn=>btn.dataset.filter===typeParam.toLocaleLowerCase('sv'));if(target){filters.forEach(b=>b.classList.remove('active'));target.classList.add('active');current=target.dataset.filter;applyArchive();}}

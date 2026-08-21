@@ -1,0 +1,10 @@
+MARKNADSSAMFUNDET – INSTALLATION
+
+1. Ladda upp hela innehållet i denna mapp till roten av GitHub-lagringsplatsen.
+2. Viktigt: .pages.yml och .github/workflows/pages.yml måste följa med.
+3. På Mac: tryck Cmd + Shift + . för att visa dolda filer/mappar.
+4. I GitHub: Inställningar → Pages → Källa/Source → GitHub Actions.
+5. Vänta tills arbetsflödet 'Bygg och publicera Marknadssamfundet' får grön bock.
+6. Kontrollera startsidan. Den ska visa 'Inga publiceringar ännu'.
+
+Därefter sätter vi upp den självhostade Pages CMS-redaktionen.

@@ -298,3 +298,22 @@ body{
   .archive-item{grid-template-columns:1fr}
   .archive-thumb{max-width:320px}
 }
+
+
+/* ---- Pages CMS: endast funktionella tillägg, v4-designen behålls ---- */
+.empty-state{padding:96px 0 120px;max-width:980px}
+.empty-state h1{font:600 clamp(3rem,6.2vw,6.1rem)/.98 var(--serif);letter-spacing:-.045em;margin:12px 0 22px;color:var(--navy)}
+.empty-state .lead{max-width:760px}
+.archive-empty{border-top:3px solid var(--ink);padding:36px 0 90px}
+.archive-empty h2{font:600 2rem/1.1 var(--serif);margin:0 0 10px}
+.single-lead{grid-template-columns:1fr}
+.single-lead .lead-story{border-right:0;padding-right:0;max-width:1000px}
+.side-story h2 a,.report-card h3 a,.opinion-card h3 a,.related h3 a{color:inherit;text-decoration:none}
+.side-story h2 a:hover,.report-card h3 a:hover,.opinion-card h3 a:hover,.related h3 a:hover{color:var(--gold)}
+.article-body img{display:block;max-width:100%;height:auto;border-radius:14px;margin:32px auto;box-shadow:0 10px 28px rgba(11,39,68,.08)}
+.article-body blockquote{border-left:4px solid var(--gold);padding:5px 0 5px 20px;margin:34px 0;font:italic 1.55rem/1.35 var(--serif);color:var(--navy)}
+.article-body ul,.article-body ol{padding-left:1.4em}
+.article-body a{color:var(--navy);text-decoration-color:var(--gold);text-underline-offset:3px}
+.article-hero{max-width:1040px;margin:0 auto 12px}
+.article-hero img{width:100%;border-radius:20px;aspect-ratio:16/9;object-fit:cover;box-shadow:0 14px 36px rgba(11,39,68,.11)}
+@media(max-width:640px){.empty-state{padding:58px 0 80px}.empty-state h1{font-size:3rem}}
