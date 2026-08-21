@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rapporter & artiklar – Marknadssamfundet</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <a class="brand" href="index.html"><img src="assets/logo-short.png" alt="Marknadssamfundet"></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Meny</button>
+    </div>
+    <nav id="main-nav" class="main-nav">
+      <a href="index.html">Hem</a>
+      <a class="active" href="arkiv.html">Rapporter & artiklar</a>
+      <a href="om.html">Om oss</a>
+      <a href="butik.html">Butik</a>
+    </nav>
+  </header>
+
+  <main class="wrap section">
+    <span class="eyebrow">Arkiv</span>
+    <h1>Rapporter & artiklar</h1>
+    <p class="lead narrow">Sök bland Marknadssamfundets rapporter, analyser, opinionstexter och reportage.</p>
+
+    <div class="search-panel">
+      <label for="search">Sök i arkivet</label>
+      <input id="search" type="search" placeholder="Sök t.ex. skatter, bostäder, EU..." autocomplete="off">
+      <div class="filters">
+        <button class="filter active" data-filter="alla">Alla</button>
+        <button class="filter" data-filter="rapport">Rapporter</button>
+        <button class="filter" data-filter="analys">Analys</button>
+        <button class="filter" data-filter="opinion">Opinion</button>
+        <button class="filter" data-filter="reportage">Reportage</button>
+      </div>
+    </div>
+
+    <div id="archive-list" class="archive-list">
+      <article class="archive-item" data-type="rapport" data-search="sverige marknader regler konkurrens äganderätt">
+        <div><span class="tag">Rapport</span><h2><a href="artikel.html">Sverige behöver fler marknader – inte fler undantag</a></h2></div>
+        <div class="meta">21 augusti 2026</div>
+      </article>
+      <article class="archive-item" data-type="analys" data-search="ekonomisk frihet institutioner företagande produktivitet">
+        <div><span class="tag">Analys</span><h2><a href="artikel.html">Därför spelar ekonomisk frihet roll</a></h2></div>
+        <div class="meta">18 augusti 2026</div>
+      </article>
+      <article class="archive-item" data-type="opinion" data-search="reformagenda mandatperiod skatter arbetsmarknad bostäder">
+        <div><span class="tag">Opinion</span><h2><a href="artikel.html">En reformagenda för nästa mandatperiod</a></h2></div>
+        <div class="meta">12 augusti 2026</div>
+      </article>
+      <article class="archive-item" data-type="reportage" data-search="företag regler entreprenörer reglering">
+        <div><span class="tag">Reportage</span><h2><a href="artikel.html">Företagen som fastnar mellan reglerna</a></h2></div>
+        <div class="meta">5 augusti 2026</div>
+      </article>
+    </div>
+
+    <p id="no-results" class="no-results" hidden>Inga träffar. Prova ett annat sökord eller filter.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
