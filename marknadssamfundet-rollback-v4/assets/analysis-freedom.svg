@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#f5efe4"/>
+  <rect x="55" y="55" width="790" height="490" rx="28" fill="#fffdf8" stroke="#d1c8b8"/>
+  <path d="M130 430 C240 350, 330 370, 450 280 S670 180, 760 120" fill="none" stroke="#b98a2c" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="760" cy="120" r="18" fill="#0b2744"/>
+  <rect x="125" y="130" width="110" height="18" rx="8" fill="#b98a2c" opacity=".9"/>
+  <rect x="125" y="180" width="560" height="34" rx="8" fill="#0b2744" opacity=".9"/>
+  <rect x="125" y="230" width="430" height="34" rx="8" fill="#0b2744" opacity=".82"/>
+  <rect x="125" y="305" width="250" height="16" rx="8" fill="#8f98a2"/>
+  <rect x="125" y="338" width="210" height="16" rx="8" fill="#8f98a2"/>
+  <text x="126" y="123" fill="#0b2744" font-family="Georgia, serif" font-size="24" letter-spacing="3">ANALYS</text>
+</svg>
