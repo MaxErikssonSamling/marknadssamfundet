@@ -1,0 +1,12 @@
+{
+  "published": false,
+  "title": "Test",
+  "publish_date": "2026-08-27",
+  "type": "Analys",
+  "topic": "Test",
+  "author": "Max",
+  "excerpt": "detta är ett tekniskt utkast",
+  "hero_image": "/assets/uploads/27c3bc96-12e5-4990-862a-46afded6e384.png",
+  "hero_alt": "test",
+  "body": "<p>Detta är ett tekniskt test av publiceringssystemet.</p>"
+}
