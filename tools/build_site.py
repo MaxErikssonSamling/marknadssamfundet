@@ -104,34 +104,36 @@ def header(active="", latest=None):
     def nav(label, href, key):
         cls = ' class="active"' if active == key else ''
         return f'<a href="{href}"{cls}>{label}</a>'
-    top = f'''<header class="masthead"><div class="wrap identity"><a href="index.html" aria-label="Marknadssamfundet, startsida"><img src="assets/mark-icon.png" alt=""></a><div class="identity-copy"><div class="identity-name">Marknadssamfundet</div><div class="identity-tagline">Idéer. Nätverk. Handel.</div></div></div><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Meny</button><nav id="main-nav" class="main-nav wrap" aria-label="Huvudmeny">{nav('Hem','index.html','home')}{nav('Om oss','om.html','about')}{nav('Institute','institute.html','archive')}{nav('Trade','trade.html','shop')}</nav></header>'''
+    top = f'''<header class="masthead"><div class="wrap identity"><a href="index.html" aria-label="Marknadssamfundet, startsida"><img src="assets/mark-icon.png" alt=""></a><div class="identity-copy"><div class="identity-name">Marknadssamfundet</div><div class="identity-tagline">Rätt väg. Rätt marknad.</div></div></div><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Meny</button><nav id="main-nav" class="main-nav wrap" aria-label="Huvudmeny">{nav('Hem','index.html','home')}{nav('Om oss','om.html','about')}{nav('Institute','institute.html','archive')}{nav('Trade','trade.html','shop')}</nav></header>'''
     if latest:
         top += f'<div class="newsline"><div class="wrap"><strong>Senaste</strong><a href="{esc(latest["_url"])}">{esc(latest["title"])}</a></div></div>'
     return top
 
 
 def footer():
-    return '''<footer class="footer"><div class="wrap"><div class="footer-grid">
-    <div>
-        <div class="footer-brand">
-            <img src="assets/mark-icon.png" alt="">
-            <strong>MARKNADSSAMFUNDET</strong>
+    return '''<footer class="footer">
+    <div class="wrap">
+        <div class="footer-simple">
+            <div class="footer-contact">
+                <strong>Marknadssamfundet</strong>
+                <p>c/o Max Eriksson<br>
+                Björkmansgatan 8<br>
+                702 86 Örebro</p>
+            </div>
+
+            <div class="footer-social">
+                <strong>Följ oss</strong>
+                <p>Instagram</p>
+                <p>Facebook</p>
+                <p>LinkedIn</p>
+            </div>
         </div>
-        <p>Idéer. Nätverk. Handel.</p>
-    </div>
-    <div>
-        <strong>Innehåll</strong>
-        <p><a href="index.html">Hem</a></p>
-        <p><a href="om.html">Om oss</a></p>
-    </div>
-    <div>
-        <strong>Verksamhet</strong>
-        <p><a href="institute.html">Institute</a></p>
-        <p><a href="trade.html">Trade</a></p>
-    </div>
-    </div><div class="legal"><small>© 2026 Marknadssamfundet.</small></div></div></footer>'''
 
-
+        <div class="legal">
+            <small>© 2026 Marknadssamfundet.</small>
+        </div>
+    </div>
+</footer>'''
 def image_tag(a, cls="", use_cover=False):
     image = a.get("cover_image") if use_cover and a.get("cover_image") else a.get("hero_image")
     alt = a.get("cover_alt") if use_cover and a.get("cover_image") else a.get("hero_alt")
