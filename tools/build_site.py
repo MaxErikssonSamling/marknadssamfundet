@@ -111,10 +111,25 @@ def header(active="", latest=None):
 
 
 def footer():
-    return '''<footer class="footer"><div class="wrap"><div class="footer-grid"><div><div class="footer-brand"><img src="assets/mark-icon.png" alt=""><strong>MARKNADSSAMFUNDET</strong></div><p>För fri marknad och ett fritt samhälle.</p></div><div><strong>Innehåll</strong><p><a href="arkiv.html">Rapporter & artiklar</a></p><p><a href="om.html">Om oss</a></p><p><a href="butik.html">Butik</a></p></div><div><strong>Kontakt</strong><p>Kontaktuppgifter publiceras här.</p></div></div><div class="legal"><small>© 2026 Marknadssamfundet.</small></div></div></footer><script src="script.js"></script></body></html>'''
-
-
-def image_tag(a, cls="", use_cover=False):
+    return '''<footer class="footer"><div class="wrap"><div class="footer-grid">
+    <div>
+        <div class="footer-brand">
+            <img src="assets/mark-icon.png" alt="">
+            <strong>MARKNADSSAMFUNDET</strong>
+        </div>
+        <p>Idéer. Nätverk. Handel.</p>
+    </div>
+    <div>
+        <strong>Innehåll</strong>
+        <p><a href="index.html">Hem</a></p>
+        <p><a href="om.html">Om oss</a></p>
+    </div>
+    <div>
+        <strong>Verksamhet</strong>
+        <p><a href="institute.html">Institute</a></p>
+        <p><a href="trade.html">Trade</a></p>
+    </div>
+    </div><div class="legal"><small>© 2026 Marknadssamfundet.</small></div></div></footer>'''def image_tag(a, cls="", use_cover=False):
     image = a.get("cover_image") if use_cover and a.get("cover_image") else a.get("hero_image")
     alt = a.get("cover_alt") if use_cover and a.get("cover_image") else a.get("hero_alt")
     return f'<img src="{esc(asset_path(image))}" alt="{esc(alt)}"{(" class="+esc(cls)+"\"") if cls else ""}>'
