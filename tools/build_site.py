@@ -250,7 +250,7 @@ def main():
     OUT.mkdir()
     # Copy static branding, CSS, JS and fixed pages.
     shutil.copytree(ROOT/'assets', OUT/'assets')
-   for name in ('styles.css','script.js','om.html','institute.html','trade.html'):
+    for name in ('styles.css', 'script.js', 'om.html', 'institute.html', 'trade.html'):
         shutil.copy2(ROOT/name, OUT/name)
     articles=load_articles()
     (OUT/'index.html').write_text(build_index(articles), encoding='utf-8')
