@@ -135,7 +135,7 @@ def footer():
 def image_tag(a, cls="", use_cover=False):
     image = a.get("cover_image") if use_cover and a.get("cover_image") else a.get("hero_image")
     alt = a.get("cover_alt") if use_cover and a.get("cover_image") else a.get("hero_alt")
-        class_attr = f' class="{esc(cls)}"' if cls else ''
+    class_attr = f' class="{esc(cls)}"' if cls else ''
     return f'<img src="{esc(asset_path(image))}" alt="{esc(alt)}"{class_attr}>'
 def empty_state():
     return '''<main class="page"><section class="wrap empty-state"><span class="kicker">Marknadssamfundet</span><h1>Inga publiceringar ännu</h1><p class="lead">Marknadssamfundets rapporter, analyser, opinionstexter och reportage kommer att publiceras här.</p></section></main>'''
