@@ -104,7 +104,7 @@ def header(active="", latest=None):
     def nav(label, href, key):
         cls = ' class="active"' if active == key else ''
         return f'<a href="{href}"{cls}>{label}</a>'
-    top = f'''<header class="masthead"><div class="wrap identity"><a href="index.html" aria-label="Marknadssamfundet, startsida"><img src="assets/mark-icon.png" alt=""></a><div class="identity-copy"><div class="identity-name">Marknadssamfundet</div><div class="identity-tagline">För fri marknad och ett fritt samhälle</div></div></div><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Meny</button><nav id="main-nav" class="main-nav wrap" aria-label="Huvudmeny">{nav('Hem','index.html','home')}{nav('Om oss','om.html','about')}{nav('Institute','institute.html','archive')}{nav('Trade','trade.html','shop')}</nav></header>'''
+    top = f'''<header class="masthead"><div class="wrap identity"><a href="index.html" aria-label="Marknadssamfundet, startsida"><img src="assets/mark-icon.png" alt=""></a><div class="identity-copy"><div class="identity-name">Marknadssamfundet</div><div class="identity-tagline">Idéer. Nätverk. Handel.</div></div></div><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Meny</button><nav id="main-nav" class="main-nav wrap" aria-label="Huvudmeny">{nav('Hem','index.html','home')}{nav('Om oss','om.html','about')}{nav('Institute','institute.html','archive')}{nav('Trade','trade.html','shop')}</nav></header>'''
     if latest:
         top += f'<div class="newsline"><div class="wrap"><strong>Senaste</strong><a href="{esc(latest["_url"])}">{esc(latest["title"])}</a></div></div>'
     return top
