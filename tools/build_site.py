@@ -129,7 +129,10 @@ def footer():
         <p><a href="institute.html">Institute</a></p>
         <p><a href="trade.html">Trade</a></p>
     </div>
-    </div><div class="legal"><small>© 2026 Marknadssamfundet.</small></div></div></footer>'''def image_tag(a, cls="", use_cover=False):
+    </div><div class="legal"><small>© 2026 Marknadssamfundet.</small></div></div></footer>'''
+
+
+def image_tag(a, cls="", use_cover=False):(a, cls="", use_cover=False):
     image = a.get("cover_image") if use_cover and a.get("cover_image") else a.get("hero_image")
     alt = a.get("cover_alt") if use_cover and a.get("cover_image") else a.get("hero_alt")
     return f'<img src="{esc(asset_path(image))}" alt="{esc(alt)}"{(" class="+esc(cls)+"\"") if cls else ""}>'
