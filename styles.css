@@ -535,4 +535,292 @@ body{
     margin-top: 30px;
   }
 }
+/* =========================================================
+   V2: ren redaktionell startsida
+   ========================================================= */
+
+.home-v2 {
+  background: #fff;
+}
+
+/* Hero */
+
+.home-hero {
+  padding-top: 72px;
+  padding-bottom: 72px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.home-hero .kicker {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--gold);
+  font: 800 .76rem var(--sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.home-hero h1 {
+  max-width: 900px;
+  margin: 0;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: clamp(3.4rem, 7vw, 6.7rem);
+  font-weight: 800;
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+.home-hero .lead {
+  max-width: 900px;
+  margin: 38px 0 0;
+  color: #344454;
+  font-family: var(--sans);
+  font-size: clamp(1.18rem, 2vw, 1.55rem);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Gemensamma sektioner */
+
+.home-v2 .section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.home-v2 .section-head {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.home-v2 .section-head h2,
+.home-v2 .home-about h2 {
+  margin: 4px 0 0;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: clamp(2rem, 4vw, 3.15rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -.035em;
+}
+
+.home-v2 .section-head a,
+.home-v2 .story-link {
+  color: var(--navy);
+  font-family: var(--sans);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-v2 .section-head a:hover,
+.home-v2 .story-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.home-v2 .kicker,
+.home-v2 .section-kicker,
+.home-v2 .tag {
+  color: var(--gold);
+  font: 800 .74rem var(--sans);
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+/* Tomt redaktionellt läge innan första publiceringen */
+
+.home-current {
+  background: #f5f7f8;
+  max-width: none;
+  width: 100%;
+  padding-left: max(21px, calc((100% - 1220px) / 2));
+  padding-right: max(21px, calc((100% - 1220px) / 2));
+}
+
+.empty-editorial {
+  max-width: 760px;
+  padding: 20px 0 34px;
+}
+
+.empty-editorial h3 {
+  margin: 0 0 12px;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.empty-editorial p {
+  margin: 0;
+  color: #43515e;
+  font-size: 1.04rem;
+  line-height: 1.65;
+}
+
+/* När artiklar finns */
+
+.home-v2 .lead-story h2,
+.home-v2 .side-story h3,
+.home-v2 .latest-item h3,
+.home-v2 .report-card h3,
+.home-v2 .opinion-card h3 {
+  font-family: var(--sans);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+
+.home-v2 .lead-story h2 {
+  font-size: clamp(2.3rem, 4vw, 4.2rem);
+}
+
+.home-v2 article h2 a,
+.home-v2 article h3 a {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.home-v2 article h2 a:hover,
+.home-v2 article h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.home-v2 .meta {
+  color: var(--muted);
+  font-family: var(--sans);
+}
+
+/* Institute / Trade */
+
+.home-areas {
+  border-top: 1px solid var(--rule);
+}
+
+.home-area-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.home-area {
+  min-height: 330px;
+  padding: 38px;
+  background: #fff;
+}
+
+.home-area h3 {
+  margin: 14px 0 18px;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: clamp(1.8rem, 3vw, 2.65rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+}
+
+.home-area p {
+  max-width: 580px;
+  margin-bottom: 26px;
+  color: #43515e;
+  font-size: 1.04rem;
+  line-height: 1.6;
+}
+
+.trade-preview {
+  background: var(--navy);
+  color: #fff;
+}
+
+.trade-preview h3,
+.trade-preview p,
+.trade-preview .story-link {
+  color: #fff;
+}
+
+.trade-preview .kicker {
+  color: #d6af59;
+}
+
+.build-status {
+  display: block;
+  width: max-content;
+  margin: 24px 0 22px;
+  padding-top: 9px;
+  border-top: 2px solid var(--gold);
+  color: #fff;
+  font: 800 .8rem var(--sans);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Kort presentation */
+
+.home-about {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 80px !important;
+  padding-bottom: 90px !important;
+  text-align: center;
+}
+
+.home-about p {
+  max-width: 760px;
+  margin: 24px auto 26px;
+  color: #43515e;
+  font-size: 1.12rem;
+  line-height: 1.65;
+}
+
+/* Mobil */
+
+@media (max-width: 760px) {
+  .home-hero {
+    padding-top: 48px;
+    padding-bottom: 52px;
+  }
+
+  .home-hero h1 {
+    font-size: clamp(3rem, 15vw, 4.7rem);
+  }
+
+  .home-hero .lead {
+    margin-top: 28px;
+    font-size: 1.08rem;
+  }
+
+  .home-v2 .section {
+    padding-top: 46px;
+    padding-bottom: 46px;
+  }
+
+  .home-current {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .home-area-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-area {
+    min-height: auto;
+    padding: 30px 24px;
+  }
+
+  .home-about {
+    text-align: left;
+    padding-top: 58px !important;
+    padding-bottom: 64px !important;
+  }
+
+  .home-about p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 
