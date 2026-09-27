@@ -146,52 +146,198 @@ def empty_state():
 def build_index(articles):
     latest = articles[0] if articles else None
     parts = [head(""), header("home", latest)]
-    if not articles:
-        parts += [empty_state(), footer()]
-        return "".join(parts)
 
-    lead = articles[0]
-    side = articles[1:3]
-    single_cls = " single-lead" if not side else ""
-    parts.append(f'<main class="page"><section class="wrap front-grid{single_cls}">')
-    parts.append(f'''<article class="lead-story"><a class="story-image story-image-hero" href="{esc(lead['_url'])}">{image_tag(lead)}</a><span class="kicker">{esc(lead['type'])}</span><h1>{esc(lead['title'])}</h1><p class="dek">{esc(lead['excerpt'])}</p><div class="meta">{full_date(lead['_date'])} · {esc(lead['author'])} · {lead['_minutes']} min</div><a class="story-link" href="{esc(lead['_url'])}">Läs mer →</a></article>''')
-    if side:
-        parts.append('<div class="side-stack">')
-        for a in side:
-            parts.append(f'''<article class="side-story"><a class="story-image" href="{esc(a['_url'])}">{image_tag(a)}</a><span class="kicker">{esc(a['type'])}</span><h2><a href="{esc(a['_url'])}">{esc(a['title'])}</a></h2><p>{esc(a['excerpt'])}</p><div class="meta">{full_date(a['_date'])} · {a['_minutes']} min</div></article>''')
-        parts.append('</div>')
-    parts.append('</section>')
+    parts.append('''<main class="page home-v2">
+<section class="wrap home-hero">
+  <span class="kicker">Marknadssamfundet</span>
+  <h1>Rätt väg.<br>Rätt marknad.</h1>
+  <p class="lead">Marknadssamfundet är en organisation för marknadsekonomi, företagande och handel. Institute står för idéer och analys. Trade utvecklas för framtida arbete med nätverk och marknadsetablering.</p>
+</section>''')
 
-    parts.append('<section class="wrap section"><div class="section-head"><h2>Senaste</h2><a href="arkiv.html">Hela arkivet →</a></div><div class="latest-grid"><div class="latest-list">')
-    for a in articles[:4]:
-        parts.append(f'''<article class="latest-item"><a class="latest-thumb" href="{esc(a['_url'])}">{image_tag(a)}</a><div><span class="tag">{esc(a['type'])}</span><h3><a href="{esc(a['_url'])}">{esc(a['title'])}</a></h3><p>{esc(a['excerpt'])}</p></div><div class="meta">{short_date(a['_date'])}</div></article>''')
-    parts.append('''</div><aside class="editorial-box"><span class="section-kicker">Vår idé</span><h3>För fri marknad och ett fritt samhälle</h3><p>Marknadssamfundet är en marknadsliberal idéorganisation för analys, opinionsbildning och samhällsdebatt.</p><a class="story-link" href="om.html">Om Marknadssamfundet →</a></aside></div></section>''')
+    if articles:
+        lead = articles[0]
+        side = articles[1:3]
+        single_cls = " single-lead" if not side else ""
 
-    reports = [a for a in articles if a.get("type") == "Rapport"][:3]
-    if reports:
-        parts.append('<section class="wrap section"><div class="section-head"><h2>Rapporter</h2><a href="arkiv.html?typ=rapport">Fler rapporter →</a></div><div class="report-grid">')
-        for i,a in enumerate(reports,1):
-            parts.append(f'''<article class="report-card"><a class="report-cover" href="{esc(a['_url'])}">{image_tag(a, use_cover=True)}</a><div class="number">{i:02d}</div><span class="tag">{esc(a['topic'])}</span><h3><a href="{esc(a['_url'])}">{esc(a['title'])}</a></h3><p>{esc(a['excerpt'])}</p><div class="meta">Rapport · {month_year(a['_date'])}</div></article>''')
+        parts.append(
+            f'<section class="wrap section home-current">'
+            f'<div class="section-head"><div><span class="kicker">Institute</span>'
+            f'<h2>Aktuellt</h2></div><a href="arkiv.html">Alla publikationer →</a></div>'
+            f'<div class="front-grid{single_cls}">'
+        )
+
+        parts.append(f'''<article class="lead-story">
+<a class="story-image story-image-hero" href="{esc(lead['_url'])}">{image_tag(lead)}</a>
+<span class="kicker">{esc(lead['type'])}</span>
+<h2><a href="{esc(lead['_url'])}">{esc(lead['title'])}</a></h2>
+<p class="dek">{esc(lead['excerpt'])}</p>
+<div class="meta">{full_date(lead['_date'])} · {esc(lead['author'])} · {lead['_minutes']} min</div>
+<a class="story-link" href="{esc(lead['_url'])}">Läs mer →</a>
+</article>''')
+
+        if side:
+            parts.append('<div class="side-stack">')
+
+            for a in side:
+                parts.append(f'''<article class="side-story">
+<a class="story-image" href="{esc(a['_url'])}">{image_tag(a)}</a>
+<span class="kicker">{esc(a['type'])}</span>
+<h3><a href="{esc(a['_url'])}">{esc(a['title'])}</a></h3>
+<p>{esc(a['excerpt'])}</p>
+<div class="meta">{full_date(a['_date'])} · {a['_minutes']} min</div>
+</article>''')
+
+            parts.append('</div>')
+
         parts.append('</div></section>')
 
-    editorial = [a for a in articles if a.get("type") in ("Analys","Opinion","Kommentar")][:3]
-    if editorial:
-        parts.append('<section class="wrap section"><div class="section-head"><h2>Analys & opinion</h2><a href="arkiv.html">Visa alla →</a></div><div class="opinion-grid">')
-        for a in editorial:
-            parts.append(f'''<article class="opinion-card"><a class="opinion-image" href="{esc(a['_url'])}">{image_tag(a)}</a><span class="tag">{esc(a['type'])}</span><h3><a href="{esc(a['_url'])}">{esc(a['title'])}</a></h3><p>{esc(a['excerpt'])}</p></article>''')
-        parts.append('</div></section>')
-    parts.append('</main>')
+        more = articles[3:7]
 
-    topics = sorted({str(a.get("topic","")).strip() for a in articles if a.get("topic")})
+        if more:
+            parts.append(
+                '<section class="wrap section">'
+                '<div class="section-head"><h2>Fler aktuella texter</h2>'
+                '<a href="arkiv.html">Hela arkivet →</a></div>'
+                '<div class="latest-list">'
+            )
+
+            for a in more:
+                parts.append(f'''<article class="latest-item">
+<a class="latest-thumb" href="{esc(a['_url'])}">{image_tag(a)}</a>
+<div>
+  <span class="tag">{esc(a['type'])}</span>
+  <h3><a href="{esc(a['_url'])}">{esc(a['title'])}</a></h3>
+  <p>{esc(a['excerpt'])}</p>
+</div>
+<div class="meta">{short_date(a['_date'])}</div>
+</article>''')
+
+            parts.append('</div></section>')
+
+        featured_urls = {a['_url'] for a in articles[:3]}
+
+        reports = [
+            a for a in articles
+            if a.get("type") == "Rapport"
+            and a['_url'] not in featured_urls
+        ][:3]
+
+        if reports:
+            parts.append(
+                '<section class="wrap section">'
+                '<div class="section-head"><h2>Rapporter</h2>'
+                '<a href="arkiv.html?type=rapport">Fler rapporter →</a></div>'
+                '<div class="report-grid">'
+            )
+
+            for i, a in enumerate(reports, 1):
+                parts.append(f'''<article class="report-card">
+<a class="report-cover" href="{esc(a['_url'])}">{image_tag(a, use_cover=True)}</a>
+<div class="number">{i:02d}</div>
+<span class="tag">{esc(a['topic'])}</span>
+<h3><a href="{esc(a['_url'])}">{esc(a['title'])}</a></h3>
+<p>{esc(a['excerpt'])}</p>
+<div class="meta">Rapport · {month_year(a['_date'])}</div>
+</article>''')
+
+            parts.append('</div></section>')
+
+        editorial = [
+            a for a in articles
+            if a.get("type") in ("Analys", "Opinion", "Kommentar")
+            and a['_url'] not in featured_urls
+        ][:3]
+
+        if editorial:
+            parts.append(
+                '<section class="wrap section">'
+                '<div class="section-head"><h2>Analys &amp; opinion</h2>'
+                '<a href="arkiv.html">Visa alla →</a></div>'
+                '<div class="opinion-grid">'
+            )
+
+            for a in editorial:
+                parts.append(f'''<article class="opinion-card">
+<a class="opinion-image" href="{esc(a['_url'])}">{image_tag(a)}</a>
+<span class="tag">{esc(a['type'])}</span>
+<h3><a href="{esc(a['_url'])}">{esc(a['title'])}</a></h3>
+<p>{esc(a['excerpt'])}</p>
+</article>''')
+
+            parts.append('</div></section>')
+
+    else:
+        parts.append('''<section class="wrap section home-empty">
+<div class="section-head">
+  <div>
+    <span class="kicker">Institute</span>
+    <h2>Aktuellt</h2>
+  </div>
+</div>
+
+<div class="empty-editorial">
+  <h3>Inga publiceringar ännu</h3>
+  <p>Marknadssamfundets rapporter, analyser, opinionstexter och kommentarer kommer att publiceras här.</p>
+</div>
+</section>''')
+
+    topics = sorted({
+        str(a.get("topic", "")).strip()
+        for a in articles
+        if a.get("topic")
+    })
+
     if topics:
-        parts.append('<section class="topics"><div class="wrap"><span class="section-kicker">Ämnen</span><div class="topic-links">')
+        parts.append(
+            '<section class="topics"><div class="wrap">'
+            '<span class="section-kicker">Sakområden</span>'
+            '<div class="topic-links">'
+        )
+
         for topic in topics:
-            parts.append(f'<a href="arkiv.html?q={esc(topic)}">{esc(topic)}</a>')
+            parts.append(
+                f'<a href="arkiv.html?q={esc(topic)}">{esc(topic)}</a>'
+            )
+
         parts.append('</div></div></section>')
+
+    parts.append('''<section class="wrap section home-areas">
+<div class="section-head">
+  <div>
+    <span class="kicker">Verksamhet</span>
+    <h2>Två delar. Ett Marknadssamfundet.</h2>
+  </div>
+</div>
+
+<div class="home-area-grid">
+  <article class="home-area">
+    <span class="kicker">Institute</span>
+    <h3>Idéer och analys</h3>
+    <p>Marknadssamfundets aktiva idé- och redaktionsverksamhet med fokus på marknadsekonomi, företagande och handel.</p>
+    <a class="story-link" href="institute.html">Till Institute →</a>
+  </article>
+
+  <article class="home-area trade-preview">
+    <span class="kicker">Trade</span>
+    <h3>Nätverk och handel</h3>
+    <p>En framtida verksamhet för svenska företag som vill etablera försäljning på nya europeiska marknader.</p>
+    <strong class="build-status">Under uppbyggnad</strong>
+    <a class="story-link" href="trade.html">Läs om Trade →</a>
+  </article>
+</div>
+</section>
+
+<section class="wrap section home-about">
+  <span class="kicker">Om Marknadssamfundet</span>
+  <h2>För marknadsekonomi, företagande och handel.</h2>
+  <p>Marknadssamfundet förenar idéarbete med en långsiktig ambition att stärka svenska företags möjligheter på europeiska marknader.</p>
+  <a class="story-link" href="om.html">Om oss →</a>
+</section>
+
+</main>''')
+
     parts.append(footer())
     return "".join(parts)
-
-
 def build_archive(articles):
     latest = articles[0] if articles else None
     parts=[head("Rapporter & artiklar"), header("archive", latest), '<main class="page"><div class="wrap"><header class="archive-header"><span class="kicker">Arkiv</span><h1>Rapporter & artiklar</h1><p class="lead">Sök bland Marknadssamfundets rapporter, analyser, opinionstexter och reportage.</p></header>']
