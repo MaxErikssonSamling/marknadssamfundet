@@ -1273,3 +1273,195 @@ body{
     padding: 24px;
   }
 }
+/* =========================================================
+   V2: Trade
+   ========================================================= */
+
+.trade-page .page {
+  background: #fff;
+}
+
+/* Övre introduktion */
+
+.trade-page .page > .wrap:first-child {
+  padding-top: 58px;
+  padding-bottom: 58px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.trade-page .page > .wrap:first-child .kicker {
+  color: var(--gold);
+  font: 800 .74rem var(--sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.trade-page .page > .wrap:first-child h1 {
+  max-width: 980px;
+  margin: 16px 0 20px;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 800;
+  line-height: .98;
+  letter-spacing: -.045em;
+}
+
+.trade-page .coming {
+  display: inline-block;
+  margin: 0 0 26px;
+  padding: 8px 13px;
+  border: 1px solid rgba(185, 138, 44, .45);
+  border-radius: 999px;
+  background: rgba(185, 138, 44, .08);
+  color: var(--gold);
+  font: 800 .72rem var(--sans);
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.trade-page .lead {
+  max-width: 970px;
+  margin: 0 0 22px;
+  color: #43515e;
+  font-family: var(--sans);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.trade-page .page > .wrap:first-child > p:last-child {
+  max-width: 850px;
+  color: #2d3d4c;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+/* Processrubrik */
+
+.trade-page .section-head {
+  margin-top: 58px;
+  margin-bottom: 36px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.trade-page .section-head .kicker {
+  color: var(--gold);
+  font: 800 .74rem var(--sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.trade-page .section-head h2 {
+  max-width: 1000px;
+  margin: 6px 0 0;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: clamp(2rem, 3.7vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -.035em;
+}
+
+/* Processen */
+
+.trade-page .principles {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 28px;
+  margin-bottom: 76px;
+
+  /* Tar bort den gamla grå "sjätte rutan" */
+  background: transparent;
+  border: 0;
+}
+
+.trade-page .principle {
+  position: relative;
+  min-height: 280px;
+  padding: 28px 24px;
+  background: #fff;
+  border: 1px solid #d9e0e6;
+  border-top: 4px solid var(--gold);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(11, 39, 68, .06);
+}
+
+.trade-page .principle h3 {
+  margin: 0 0 18px;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1.22;
+}
+
+.trade-page .principle p {
+  margin: 0;
+  color: #43515e;
+  font-size: .96rem;
+  line-height: 1.55;
+}
+
+/* Pilar mellan steg */
+
+.trade-page .principle:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: -23px;
+  z-index: 3;
+  width: 18px;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-family: var(--sans);
+  font-size: 1.45rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* Mellanstora skärmar */
+
+@media (max-width: 1100px) {
+  .trade-page .principles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .trade-page .principle {
+    min-height: auto;
+  }
+
+  .trade-page .principle:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* Mobil */
+
+@media (max-width: 640px) {
+  .trade-page .page > .wrap:first-child {
+    padding-top: 40px;
+    padding-bottom: 42px;
+  }
+
+  .trade-page .page > .wrap:first-child h1 {
+    font-size: clamp(2.7rem, 13vw, 4rem);
+  }
+
+  .trade-page .section-head {
+    margin-top: 42px;
+  }
+
+  .trade-page .principles {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 52px;
+  }
+
+  .trade-page .principle {
+    padding: 24px;
+    border-radius: 14px;
+  }
+}
