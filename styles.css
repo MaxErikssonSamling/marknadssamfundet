@@ -966,3 +966,9 @@ body{
     display: none !important;
   }
 }
+/* V2: neutralisera gamla alternerande sektionsbakgrunder */
+.home-v2.page > section.home-current {
+  background: #fff;
+  box-shadow: none;
+  clip-path: none;
+}
