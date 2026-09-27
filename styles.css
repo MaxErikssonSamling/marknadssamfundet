@@ -855,3 +855,64 @@ body{
     font-size: clamp(2.8rem, 14vw, 4rem);
   }
 }
+/* V2: renare institutionell header */
+
+.identity {
+  min-height: 82px;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.identity img {
+  width: 58px;
+  height: 58px;
+}
+
+.identity-name {
+  font-size: clamp(1.5rem, 2vw, 1.95rem);
+  letter-spacing: .07em;
+}
+
+.identity-tagline {
+  margin-top: 2px;
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+.main-nav {
+  justify-content: center;
+  gap: 42px;
+}
+
+.main-nav a {
+  padding: 12px 0 10px;
+  font-size: .74rem;
+  letter-spacing: .09em;
+}
+
+@media (max-width: 760px) {
+  .identity {
+    justify-content: flex-start;
+    min-height: 72px;
+    padding: 10px 0;
+    padding-right: 90px;
+  }
+
+  .identity img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .identity-name {
+    font-size: 1.05rem;
+  }
+
+  .identity-tagline {
+    display: none;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+  }
+}
