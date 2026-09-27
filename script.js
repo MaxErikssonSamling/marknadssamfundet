@@ -44,53 +44,6 @@ if ('IntersectionObserver' in window) {
   revealElements.forEach(el => el.classList.add('is-visible'));
 }
 
-// Bygg en kompakt sidoflik från den befintliga huvudmenyn.
-const masthead = document.querySelector('.masthead');
-const mainNavLinks = [...document.querySelectorAll('#main-nav a')];
-
-if (masthead && mainNavLinks.length) {
-  const rail = document.createElement('aside');
-  rail.className = 'side-rail';
-  rail.setAttribute('aria-label', 'Snabbnavigering');
-
-  const brand = document.createElement('div');
-  brand.className = 'side-rail-brand';
-  brand.innerHTML = '<img src="assets/mark-icon.png" alt=""><span>MARKNADSSAMFUNDET</span>';
-  rail.appendChild(brand);
-
-  const railNav = document.createElement('nav');
-
-  mainNavLinks.forEach(link => {
-    const a = document.createElement('a');
-    a.href = link.href;
-    if (link.classList.contains('active')) a.classList.add('active');
-
-    const short = document.createElement('span');
-    short.className = 'rail-short';
-    short.textContent = link.textContent.trim().charAt(0).toUpperCase();
-
-    const label = document.createElement('span');
-    label.className = 'rail-label';
-    label.textContent = link.textContent.trim();
-
-    a.append(short, label);
-    railNav.appendChild(a);
-  });
-
-  rail.appendChild(railNav);
-  document.body.appendChild(rail);
-
-  const updateRail = () => {
-    const mastheadBottom = masthead.getBoundingClientRect().bottom;
-    rail.classList.toggle('visible', mastheadBottom < 0);
-  };
-
-  updateRail();
-  window.addEventListener('scroll', updateRail, { passive: true });
-  window.addEventListener('resize', updateRail);
-}
-
-
 // Öppna arkivet med ett typfilter, t.ex. arkiv.html?typ=rapport.
 const typeParam=new URLSearchParams(location.search).get('typ');
 if(typeParam&&filters.length){const target=filters.find(btn=>btn.dataset.filter===typeParam.toLocaleLowerCase('sv'));if(target){filters.forEach(b=>b.classList.remove('active'));target.classList.add('active');current=target.dataset.filter;applyArchive();}}
