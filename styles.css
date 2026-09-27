@@ -972,3 +972,27 @@ body{
   box-shadow: none;
   clip-path: none;
 }
+/* V2: renare Om-sektion på startsidan */
+.home-v2.page > section.home-about {
+  background: #fff;
+  box-shadow: none;
+  clip-path: none;
+}
+
+.home-about {
+  padding-top: 68px !important;
+  padding-bottom: 72px !important;
+}
+
+.home-about h2 {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 760px) {
+  .home-about {
+    padding-top: 50px !important;
+    padding-bottom: 54px !important;
+  }
+}
