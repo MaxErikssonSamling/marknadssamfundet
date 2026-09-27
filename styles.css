@@ -951,3 +951,18 @@ body{
     justify-content: flex-start;
   }
 }
+/* V2: slogan i headern */
+.identity-tagline {
+  display: block !important;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.2;
+  font-style: normal;
+}
+
+@media (max-width: 760px) {
+  .identity-tagline {
+    display: none !important;
+  }
+}
