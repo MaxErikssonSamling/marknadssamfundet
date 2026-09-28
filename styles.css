@@ -1475,3 +1475,53 @@ body{
     min-height: auto;
   }
 }
+/* V2: ren hamburgerknapp på mobil */
+
+@media (max-width: 760px) {
+  .menu-toggle {
+    display: block;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: transparent;
+    font-size: 0;
+    cursor: pointer;
+  }
+
+  .menu-toggle::before,
+  .menu-toggle::after {
+    content: "";
+    position: absolute;
+    left: 9px;
+    width: 24px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition:
+      transform .22s ease,
+      top .22s ease,
+      box-shadow .22s ease;
+  }
+
+  .menu-toggle::before {
+    top: 13px;
+    box-shadow: 0 7px 0 var(--navy);
+  }
+
+  .menu-toggle::after {
+    top: 27px;
+  }
+
+  .menu-toggle[aria-expanded="true"]::before {
+    top: 20px;
+    transform: rotate(45deg);
+    box-shadow: none;
+  }
+
+  .menu-toggle[aria-expanded="true"]::after {
+    top: 20px;
+    transform: rotate(-45deg);
+  }
+}
