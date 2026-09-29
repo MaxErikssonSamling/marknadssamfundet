@@ -1919,3 +1919,243 @@ body{
   bottom: 0;
   }
 }
+/* =========================================
+   V2 – INSTITUTE
+   ========================================= */
+.institute-main {
+  padding: 0;
+}
+
+/* HERO */
+
+.institute-hero {
+  padding-top: clamp(72px, 9vw, 128px);
+  padding-bottom: clamp(72px, 9vw, 120px);
+  max-width: 1220px;
+}
+
+.institute-hero .kicker {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.institute-hero h1 {
+  max-width: 920px;
+  margin: 0;
+  font: 600 clamp(3.8rem, 7vw, 7rem)/.95 var(--serif);
+  letter-spacing: -.045em;
+  color: var(--navy);
+}
+
+.institute-hero .lead {
+  max-width: 770px;
+  margin: 30px 0 0;
+  font: 1.32rem/1.55 var(--serif);
+  color: #414b55;
+}
+
+
+/* GEMENSAMMA SEKTIONSRUBRIKER */
+
+.institute-section-head {
+  margin-bottom: 32px;
+}
+
+.institute-section-head > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.institute-section-head h2 {
+  margin: 0;
+}
+
+
+/* ANALYSER */
+
+.institute-publications {
+  padding-top: 58px;
+  padding-bottom: 82px;
+  border-top: 1px solid var(--rule);
+}
+
+.institute-empty {
+  max-width: 720px;
+  padding: 28px 0 0;
+}
+
+.institute-empty h3 {
+  margin: 7px 0 12px;
+  font: 600 clamp(1.65rem, 2.8vw, 2.35rem)/1.08 var(--serif);
+  color: var(--navy);
+}
+
+.institute-empty p {
+  max-width: 650px;
+  margin: 0;
+  color: #59636c;
+  font-size: .98rem;
+  line-height: 1.65;
+}
+
+
+/* RÄTTSOMRÅDEN */
+
+.institute-areas {
+  padding: 76px 0 88px;
+  background: #f4f6f8;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.institute-area-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid #cfd6dc;
+  border-bottom: 1px solid #cfd6dc;
+}
+
+.institute-area {
+  position: relative;
+  min-height: 310px;
+  padding: 38px 42px 42px 0;
+}
+
+.institute-area + .institute-area {
+  padding-left: 42px;
+  border-left: 1px solid #cfd6dc;
+}
+
+.institute-area-number {
+  display: block;
+  margin-bottom: 54px;
+  font: 600 .78rem/1 var(--sans);
+  letter-spacing: .14em;
+  color: var(--gold);
+}
+
+.institute-area h3 {
+  margin: 0 0 14px;
+  font: 600 clamp(2rem, 3.5vw, 3.2rem)/1 var(--serif);
+  color: var(--navy);
+}
+
+.institute-area p {
+  max-width: 490px;
+  margin: 0;
+  color: #47515b;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+
+/* OM INSTITUTE */
+
+.institute-about {
+  display: grid;
+  grid-template-columns: minmax(180px, .6fr) minmax(0, 1.4fr);
+  gap: clamp(50px, 8vw, 120px);
+  padding-top: 92px;
+  padding-bottom: 108px;
+}
+
+.institute-about-copy {
+  max-width: 780px;
+}
+
+.institute-about-copy h2 {
+  margin: 0 0 28px;
+ font: 600 clamp(2.4rem, 4vw, 3.8rem)/1.03 var(--serif);
+  letter-spacing: -.035em;
+  color: var(--navy);
+}
+
+.institute-about-copy p {
+  max-width: 720px;
+  margin: 0 0 22px;
+  font: 1.13rem/1.7 var(--serif);
+  color: #414b55;
+}
+@media (max-width: 900px) {
+
+  .institute-hero h1 {
+    font-size: clamp(3.4rem, 9vw, 5.5rem);
+  }
+
+  .institute-area-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .institute-area {
+    min-height: auto;
+    padding: 34px 0 40px;
+  }
+
+  .institute-area + .institute-area {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid #cfd6dc;
+  }
+
+  .institute-area-number {
+    margin-bottom: 30px;
+  }
+
+  .institute-about {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+@media (max-width: 640px) {
+
+  .institute-hero {
+    padding-top: 58px;
+    padding-bottom: 48px;
+  }
+
+  .institute-hero h1 {
+    font-size: 3.15rem;
+    line-height: .98;
+  }
+
+  .institute-hero .lead {
+    margin-top: 24px;
+    font-size: 1.08rem;
+  }
+
+  .institute-publications {
+    padding-top: 36px;
+    padding-bottom: 54px;
+  }
+
+  .institute-empty {
+    padding-top: 22px;
+  }
+
+  .institute-empty h3 {
+    font-size: 2rem;
+  }
+
+  .institute-areas {
+    padding: 52px 0 60px;
+  }
+
+  .institute-area h3 {
+    font-size: 2.25rem;
+  }
+
+  .institute-about {
+    padding-top: 62px;
+    padding-bottom: 72px;
+  }
+
+  .institute-about-copy h2 {
+    font-size: 2.35rem;
+  }
+
+  .institute-about-copy p {
+    font-size: 1.05rem;
+  }
+}
