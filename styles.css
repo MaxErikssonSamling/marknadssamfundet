@@ -1565,3 +1565,27 @@ body{
     letter-spacing: -.04em;
   }
 }
+/* V2: subtil presentation av Trade-korten */
+
+.trade-page .principle.reveal {
+  opacity: 0;
+  transform: translateY(18px) scale(.985);
+  transition:
+    opacity .55s ease,
+    transform .65s cubic-bezier(.22, .9, .28, 1.08);
+  will-change: opacity, transform;
+}
+
+.trade-page .principle.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Respektera användare som vill ha mindre animation */
+@media (prefers-reduced-motion: reduce) {
+  .trade-page .principle.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
