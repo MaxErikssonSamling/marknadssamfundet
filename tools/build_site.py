@@ -121,48 +121,42 @@ def footer():
           Björkmansgatan 8<br>
           702 86 Örebro
         </address>
-        <div class="footer-social-icons" aria-label="Sociala medier">
-          <!-- Profil-länkar aktiveras inför lansering. -->
-          <span class="footer-social-icon" title="LinkedIn – länk läggs till inför lansering" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M7.5 10v7M7.5 7.3v.2M11 17v-4.1c0-1.7 1-2.9 2.6-2.9 1.5 0 2.4 1 2.4 2.9V17M11 10.4V17"></path></svg>
-          </span>
-          <span class="footer-social-icon" title="X – länk läggs till inför lansering" aria-label="X">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l14 16M19 4L5 20"></path></svg>
-          </span>
-          <span class="footer-social-icon" title="Instagram – länk läggs till inför lansering" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".8" class="footer-social-dot"></circle></svg>
-          </span>
-        </div>
       </section>
 
-      <nav class="site-footer-col site-footer-links" aria-labelledby="footer-links-heading">
-        <h2 id="footer-links-heading">Länkar</h2>
-        <a href="index.html">Start</a>
-        <a href="om.html">Om oss</a>
-        <a href="institute.html">Institute</a>
-        <a href="trade.html">Trade</a>
-        <a href="arkiv.html">Arkiv</a>
-      </nav>
+<section class="site-footer-col site-footer-business-col" aria-labelledby="footer-business-heading">
+  <h2 id="footer-business-heading">För företag</h2>
+  <p>Vill ditt företag köpa våra tjänster eller diskutera marknadsetablering? <a href="mailto:kontakt@marknadssamfundet.se">Kontakta oss.</a></p>
+  <a class="footer-trade-link" href="trade.html">Läs om Trade <span aria-hidden="true">→</span></a>
+</section>
 
-      <section class="site-footer-col site-footer-write" aria-labelledby="footer-write-heading">
-        <h2 id="footer-write-heading">Skriv för oss</h2>
-        <h3>Har du en idé och vill skriva för oss?</h3>
-        <p>Hör av dig med idé och manus till</p>
-        <a class="footer-email" href="mailto:kontakt@marknadssamfundet.se">kontakt@marknadssamfundet.se</a>
-
-        <div class="footer-business">
-          <h3>För företag</h3>
-          <p>Vill ditt företag köpa våra tjänster eller diskutera marknadsetablering? <a href="mailto:kontakt@marknadssamfundet.se">Kontakta oss.</a></p>
-          <a class="footer-trade-link" href="trade.html">Läs om Trade <span aria-hidden="true">→</span></a>
-        </div>
-      </section>
-
+<section class="site-footer-col site-footer-write" aria-labelledby="footer-write-heading">
+  <h2 id="footer-write-heading">Har du en idé och vill skriva för oss?</h2>
+  <p>Hör av dig med idé och manus till</p>
+  <a class="footer-email" href="mailto:kontakt@marknadssamfundet.se">kontakt@marknadssamfundet.se</a>
+</section>
       <section class="site-footer-col site-footer-follow" aria-labelledby="footer-follow-heading">
         <h2 id="footer-follow-heading">Följ oss</h2>
         <!-- Profil-länkar läggs in när Marknadssamfundets konton är klara. -->
-        <span>Instagram</span>
-        <span>LinkedIn</span>
-        <span>X (Twitter)</span>
+        <div class="footer-social-list" aria-label="Sociala medier">
+          <span class="footer-social-row" title="Instagram – länk läggs till inför lansering">
+            <span class="footer-social-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".8" class="footer-social-dot"></circle></svg>
+            </span>
+            <span>Instagram</span>
+          </span>
+          <span class="footer-social-row" title="LinkedIn – länk läggs till inför lansering">
+            <span class="footer-social-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M7.5 10v7M7.5 7.3v.2M11 17v-4.1c0-1.7 1-2.9 2.6-2.9 1.5 0 2.4 1 2.4 2.9V17M11 10.4V17"></path></svg>
+            </span>
+            <span>LinkedIn</span>
+          </span>
+          <span class="footer-social-row" title="X – länk läggs till inför lansering">
+            <span class="footer-social-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 4l14 16M19 4L5 20"></path></svg>
+            </span>
+            <span>X (Twitter)</span>
+          </span>
+        </div>
       </section>
     </div>
 
@@ -172,7 +166,7 @@ def footer():
         <span class="footer-separator" aria-hidden="true">|</span>
         <a href="mailto:kontakt@marknadssamfundet.se">Kontakt</a>
       </div>
-      <img class="footer-ornament" src="assets/footer-illustration.svg" alt="" aria-hidden="true">
+      <img class="footer-ornament" src="assets/footer-illustration-guide.png" alt="" aria-hidden="true">
     </div>
   </div>
 </footer>
