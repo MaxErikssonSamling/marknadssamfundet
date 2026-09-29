@@ -1556,3 +1556,12 @@ body{
     border-color: var(--navy);
   }
 }
+/* V2: mobilfix för Om oss-rubriken */
+@media (max-width: 760px) {
+  .about-header h1 {
+    max-width: 100%;
+    font-size: clamp(2rem, 9vw, 2.6rem);
+    line-height: 1;
+    letter-spacing: -.04em;
+  }
+}
