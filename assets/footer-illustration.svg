@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 150" aria-hidden="true">
+  <g fill="none" stroke="#c9d4df" stroke-linecap="round">
+    <path d="M0 111c56-19 96-19 151 0s96 19 151 0 96-19 151 0 98 19 267-10" stroke-width="2.2" opacity=".18"/>
+    <path d="M0 123c55-18 97-18 151 0s97 18 151 0 97-18 151 0 98 18 267-9" stroke-width="1.4" opacity=".25"/>
+    <path d="M34 136c49-13 87-13 136 0s88 13 137 0 89-13 138 0 88 13 243-6" stroke-width="1.2" opacity=".17"/>
+  </g>
+
+  <!-- bird -->
+  <g transform="translate(355 55)" fill="#c9d4df" opacity=".42">
+    <path d="M0 23c11-1 18-7 25-15-2 7-1 12 3 16 8-2 15-6 22-12-4 9-10 16-18 21-9 5-20 6-32 3 8-2 14-6 18-11-7 1-13 0-18-2z"/>
+  </g>
+
+  <!-- north star / compass -->
+  <g transform="translate(488 18)">
+    <circle cx="44" cy="44" r="32" fill="none" stroke="#b98a2c" stroke-width="1.2" opacity=".82"/>
+    <path d="M44 1l5 32 29 11-29 5-5 38-5-38-29-5 29-11z" fill="#b98a2c" opacity=".96"/>
+    <path d="M44 15v58M17 44h54" fill="none" stroke="#b98a2c" stroke-width=".9" opacity=".58"/>
+  </g>
+
+  <!-- stylised historic merchant ship -->
+  <g transform="translate(595 46)" fill="#c9d4df" opacity=".38">
+    <path d="M8 58h99l-11 10H24z"/>
+    <path d="M24 52h71l13 6H14z"/>
+    <rect x="42" y="20" width="2.2" height="34"/>
+    <rect x="62" y="7" width="2.2" height="47"/>
+    <rect x="83" y="19" width="2.2" height="35"/>
+    <path d="M45 20c8 2 13 8 15 19H45zm20-13c11 4 16 13 18 31H65zm20 12c8 3 13 9 15 21H85z"/>
+    <path d="M39 22c-7 4-11 10-13 18h13zm22-12c-10 4-15 14-17 29h17zm20 12c-7 4-11 10-13 18h13z" opacity=".72"/>
+    <path d="M20 69c15 5 29 5 44 0 16-5 30-5 45 0v3c-15-5-29-5-45 0-15 5-29 5-44 0z" opacity=".72"/>
+  </g>
+</svg>
