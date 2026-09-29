@@ -1536,3 +1536,23 @@ body{
     font-size: .78rem;
   }
 }
+/* V2: snyggare verksamhetskort på mobil */
+@media (max-width: 760px) {
+  .home-area-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    background: transparent;
+    border: 0;
+  }
+
+  .home-area {
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .trade-preview {
+    border-color: var(--navy);
+  }
+}
