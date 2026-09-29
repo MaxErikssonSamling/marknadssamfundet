@@ -1525,3 +1525,14 @@ body{
     transform: rotate(-45deg);
   }
 }
+/* V2: kompaktare mobilnavigation */
+@media (max-width: 760px) {
+  .main-nav {
+    gap: 0;
+  }
+
+  .main-nav a {
+    padding: 16px 0;
+    font-size: .78rem;
+  }
+}
