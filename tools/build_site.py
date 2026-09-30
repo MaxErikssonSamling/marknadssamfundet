@@ -193,7 +193,7 @@ def build_index(articles):
 <section class="wrap home-hero">
   <span class="kicker">Marknadssamfundet</span>
   <h1>Rätt väg.<br>Rätt marknad.</h1>
-  <p class="lead">Marknadssamfundet är en organisation för marknadsekonomi, företagande och handel. Institute står för idéer och analys. Trade utvecklas för framtida arbete med nätverk och marknadsetablering.</p>
+  <p class="lead">Marknadssamfundet arbetar med de rättsliga och institutionella villkor som formar handel, företagande och den europeiska marknaden. Institute bedriver kvalificerad juridisk analys. Trade utvecklas för juridisk rådgivning till svenska företag inför expansion på nya europeiska marknader.</p>
 </section>''')
 
     if articles:
@@ -313,13 +313,13 @@ def build_index(articles):
 <div class="section-head">
   <div>
     <span class="kicker">Institute</span>
-    <h2>Aktuellt</h2>
+    <h2>Läs våra senaste analyser</h2>
   </div>
 </div>
 
 <div class="empty-editorial">
-  <h3>Inga publiceringar ännu</h3>
-  <p>Marknadssamfundets rapporter, analyser, opinionstexter och kommentarer kommer att publiceras här.</p>
+  <h3>Den första analysen publiceras snart</h3>
+  <p>Marknadssamfundet Institute publicerar kvalificerade analyser inom EU-rätt och svensk affärsrätt.</p>
 </div>
 </section>''')
 
@@ -354,15 +354,15 @@ def build_index(articles):
 <div class="home-area-grid">
   <article class="home-area">
     <span class="kicker">Institute</span>
-    <h3>Idéer och analys</h3>
-    <p>Marknadssamfundets aktiva idé- och redaktionsverksamhet med fokus på marknadsekonomi, företagande och handel.</p>
+    <h3>Juridisk analys</h3>
+    <p>Kvalificerade analyser av rättsliga och institutionella frågor som påverkar handel, företagande och marknadens utveckling, med fokus på EU-rätt och svensk affärsjuridik.</p>
     <a class="story-link" href="institute.html">Till Institute →</a>
   </article>
 
   <article class="home-area trade-preview">
     <span class="kicker">Trade</span>
-    <h3>Nätverk och handel</h3>
-    <p>En framtida verksamhet för svenska företag som vill etablera försäljning på nya europeiska marknader.</p>
+    <h3>Juridisk rådgivning</h3>
+    <p>Juridisk rådgivning för svenska företag som vill lansera befintliga produkter på nya europeiska marknader. Trade hjälper företag att identifiera och hantera de juridiska krav som aktualiseras inför internationell expansion.</p>
     <strong class="build-status">Under uppbyggnad</strong>
     <a class="story-link" href="trade.html">Läs om Trade →</a>
   </article>
@@ -372,7 +372,7 @@ def build_index(articles):
 <section class="wrap section home-about">
   <span class="kicker">Om Marknadssamfundet</span>
   <h2>För marknadsekonomi, företagande och handel.</h2>
-  <p>Marknadssamfundet förenar idéarbete med en långsiktig ambition att stärka svenska företags möjligheter på europeiska marknader.</p>
+  <p>Marknadssamfundet förenar kvalificerad juridisk analys med en ambition att göra komplexa rättsliga frågor begripliga och användbara för företag, marknader och samhälle.</p>
   <a class="story-link" href="om.html">Om oss →</a>
 </section>
 
