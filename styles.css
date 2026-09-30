@@ -2159,3 +2159,834 @@ body{
     font-size: 1.05rem;
   }
 }
+/* =========================================
+   V2 – ANALYSER
+   ========================================= */
+
+.analysis-archive {
+  padding-top: 0;
+}
+
+.analysis-archive-hero {
+  padding-top: clamp(72px, 9vw, 120px);
+  padding-bottom: clamp(58px, 7vw, 92px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.analysis-archive-hero .kicker {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.analysis-archive-hero h1 {
+  margin: 0;
+  font: 600 clamp(3.8rem, 7vw, 6.5rem)/.95 var(--serif);
+  letter-spacing: -.045em;
+  color: var(--navy);
+}
+
+.analysis-archive-hero .lead {
+  max-width: 760px;
+  margin: 28px 0 0;
+  font: 1.28rem/1.55 var(--serif);
+  color: #414b55;
+}
+
+
+/* SÖK OCH FILTER */
+
+.analysis-tools {
+  padding-top: 48px;
+  padding-bottom: 44px;
+}
+
+.analysis-search {
+  max-width: 760px;
+}
+
+.analysis-search label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.analysis-search input {
+  width: 100%;
+  padding: 15px 0;
+  border: 0;
+  border-bottom: 1px solid #aeb7c0;
+  background: transparent;
+  font: 1rem var(--sans);
+  color: var(--navy);
+}
+
+.analysis-search input:focus {
+  outline: 0;
+  border-bottom-color: var(--gold);
+}
+
+.analysis-filters {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.analysis-filter-label {
+  font-size: .78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--gold);
+}
+
+.analysis-filters .filters {
+  margin: 0;
+}
+
+.analysis-filters .filter {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  padding: 4px 0;
+  margin-right: 18px;
+  color: #4d5862;
+  font-weight: 700;
+}
+
+.analysis-filters .filter:hover,
+.analysis-filters .filter.active {
+  background: transparent;
+  color: var(--navy);
+  border-bottom-color: var(--gold);
+}
+
+
+/* LISTA MED ANALYSER */
+
+.analysis-list {
+  border-top: 2px solid var(--navy);
+  padding-bottom: 88px;
+}
+
+.analysis-list-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 42px;
+  align-items: end;
+  padding: 36px 0 38px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.analysis-list-content {
+  max-width: 850px;
+}
+
+.analysis-list-label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--gold);
+  font-size: .74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+.analysis-list-item h2 {
+  margin: 0 0 12px;
+  font: 600 clamp(1.9rem, 3.2vw, 3rem)/1.05 var(--serif);
+  color: var(--navy);
+}
+
+.analysis-list-item h2 a {
+  text-decoration: none;
+}
+
+.analysis-list-item h2 a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.analysis-list-excerpt {
+  max-width: 720px;
+  margin: 0;
+  color: #4b5660;
+  line-height: 1.6;
+}
+
+.analysis-list-meta {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+.analysis-list-link {
+  white-space: nowrap;
+  align-self: end;
+  padding-bottom: 3px;
+  text-decoration: none;
+  font-weight: 800;
+  border-bottom: 1px solid var(--gold);
+}
+
+
+/* TOMLÄGE */
+
+.analysis-archive-empty {
+  padding-top: 54px;
+  padding-bottom: 64px;
+}
+
+.analysis-archive-empty h2 {
+  max-width: 720px;
+  margin: 8px 0 14px;
+  font: 600 clamp(1.85rem, 3.2vw, 2.8rem)/1.06 var(--serif);
+  color: var(--navy);
+}
+
+.analysis-archive-empty p {
+  max-width: 640px;
+  margin: 0;
+  color: #59636c;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .analysis-list-item {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .analysis-list-link {
+    justify-self: start;
+  }
+}
+
+
+/* MOBIL */
+
+@media (max-width: 640px) {
+
+  .analysis-archive-hero {
+    padding-top: 58px;
+    padding-bottom: 48px;
+  }
+
+  .analysis-archive-hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .analysis-archive-hero .lead {
+    margin-top: 22px;
+    font-size: 1.08rem;
+  }
+
+  .analysis-tools {
+    padding-top: 36px;
+    padding-bottom: 34px;
+  }
+
+  .analysis-filters {
+    display: block;
+    margin-top: 24px;
+  }
+
+  .analysis-filter-label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .analysis-filters .filter {
+    margin-right: 14px;
+    margin-bottom: 8px;
+  }
+
+  .analysis-list {
+    padding-bottom: 62px;
+
+
+  }
+
+  .analysis-list-item {
+    padding: 28px 0 30px;
+  }
+
+  .analysis-list-item h2 {
+    font-size: 2rem;
+  }
+
+  .analysis-archive-empty {
+    padding-top: 46px;
+    padding-bottom: 74px;
+  }
+
+  .analysis-archive-empty h2 {
+    font-size: 2.2rem;
+  }
+}
+/* =========================================
+   V2 – ANALYSER
+   ========================================= */
+
+.analysis-archive {
+  padding-top: 0;
+}
+
+.analysis-archive-hero {
+  padding-top: clamp(72px, 9vw, 120px);
+  padding-bottom: clamp(58px, 7vw, 92px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.analysis-archive-hero .kicker {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.analysis-archive-hero h1 {
+  margin: 0;
+  font: 600 clamp(3.8rem, 7vw, 6.5rem)/.95 var(--serif);
+  letter-spacing: -.045em;
+  color: var(--navy);
+}
+
+.analysis-archive-hero .lead {
+  max-width: 760px;
+  margin: 28px 0 0;
+  font: 1.28rem/1.55 var(--serif);
+  color: #414b55;
+}
+
+
+/* SÖK OCH FILTER */
+
+.analysis-tools {
+  padding-top: 48px;
+  padding-bottom: 44px;
+}
+
+.analysis-search {
+  max-width: 760px;
+}
+
+.analysis-search label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.analysis-search input {
+  width: 100%;
+  padding: 15px 0;
+  border: 0;
+  border-bottom: 1px solid #aeb7c0;
+  background: transparent;
+  font: 1rem var(--sans);
+  color: var(--navy);
+}
+
+.analysis-search input:focus {
+  outline: 0;
+  border-bottom-color: var(--gold);
+}
+
+.analysis-filters {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.analysis-filter-label {
+  font-size: .78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--gold);
+}
+
+.analysis-filters .filters {
+  margin: 0;
+}
+
+.analysis-filters .filter {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  padding: 4px 0;
+  margin-right: 18px;
+  color: #4d5862;
+  font-weight: 700;
+}
+
+.analysis-filters .filter:hover,
+.analysis-filters .filter.active {
+  background: transparent;
+  color: var(--navy);
+  border-bottom-color: var(--gold);
+}
+
+
+/* LISTA MED ANALYSER */
+
+.analysis-list {
+  border-top: 2px solid var(--navy);
+  padding-bottom: 88px;
+}
+
+.analysis-list-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 42px;
+  align-items: end;
+  padding: 36px 0 38px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.analysis-list-content {
+  max-width: 850px;
+}
+
+.analysis-list-label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--gold);
+  font-size: .74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+.analysis-list-item h2 {
+  margin: 0 0 12px;
+  font: 600 clamp(1.9rem, 3.2vw, 3rem)/1.05 var(--serif);
+  color: var(--navy);
+}
+
+.analysis-list-item h2 a {
+  text-decoration: none;
+}
+
+.analysis-list-item h2 a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.analysis-list-excerpt {
+  max-width: 720px;
+  margin: 0;
+  color: #4b5660;
+  line-height: 1.6;
+}
+
+.analysis-list-meta {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+.analysis-list-link {
+  white-space: nowrap;
+  align-self: end;
+  padding-bottom: 3px;
+  text-decoration: none;
+  font-weight: 800;
+  border-bottom: 1px solid var(--gold);
+}
+
+
+/* TOMLÄGE */
+
+.analysis-archive-empty {
+  padding-top: 62px;
+  padding-bottom: 100px;
+}
+
+.analysis-archive-empty h2 {
+  max-width: 720px;
+  margin: 8px 0 14px;
+  font: 600 clamp(2rem, 4vw, 3.4rem)/1.05 var(--serif);
+  color: var(--navy);
+}
+
+.analysis-archive-empty p {
+  max-width: 640px;
+  margin: 0;
+  color: #59636c;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .analysis-list-item {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .analysis-list-link {
+    justify-self: start;
+  }
+}
+
+
+/* MOBIL */
+
+@media (max-width: 640px) {
+
+  .analysis-archive-hero {
+    padding-top: 58px;
+    padding-bottom: 48px;
+  }
+
+  .analysis-archive-hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .analysis-archive-hero .lead {
+    margin-top: 22px;
+    font-size: 1.08rem;
+  }
+
+  .analysis-tools {
+    padding-top: 36px;
+    padding-bottom: 34px;
+  }
+
+  .analysis-filters {
+    display: block;
+    margin-top: 24px;
+  }
+
+  .analysis-filter-label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .analysis-filters .filter {
+    margin-right: 14px;
+    margin-bottom: 8px;
+  }
+
+  .analysis-list {
+    padding-bottom: 62px;
+  }
+
+  .analysis-list-item {
+    padding: 28px 0 30px;
+  }
+
+  .analysis-list-item h2 {
+    font-size: 2rem;
+  }
+
+  .analysis-archive-empty {
+    padding-top: 46px;
+    padding-bottom: 74px;
+  }
+
+  .analysis-archive-empty h2 {
+    font-size: 2.2rem;
+  }
+}
+/* =========================================
+   V2 – ENSKILD ANALYS
+   ========================================= */
+
+.analysis-article-page {
+  padding-top: 0;
+}
+
+.analysis-article-header {
+  max-width: 980px;
+  padding-top: clamp(72px, 8vw, 112px);
+  padding-bottom: 54px;
+}
+
+.analysis-article-label {
+  margin-bottom: 16px;
+  color: var(--gold);
+  font-size: .76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+}
+
+.analysis-article-header h1 {
+  max-width: 940px;
+  margin: 0;
+  font: 600 clamp(3.3rem, 6vw, 5.8rem)/.98 var(--serif);
+  letter-spacing: -.045em;
+  color: var(--navy);
+}
+
+.analysis-article-lead {
+  max-width: 790px;
+  margin: 28px 0 0;
+  font: 1.3rem/1.55 var(--serif);
+  color: #46515b;
+}
+
+.analysis-article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+.analysis-pdf-link {
+  display: inline-block;
+  margin-top: 18px;
+  padding-bottom: 3px;
+  text-decoration: none;
+  font-weight: 800;
+  border-bottom: 1px solid var(--gold);
+}
+
+.analysis-article-hero {
+  margin-top: 10px;
+  margin-bottom: 48px;
+}
+
+.analysis-article-hero img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.analysis-article-content {
+  max-width: 980px;
+  padding-bottom: 92px;
+}
+
+.analysis-article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  font: 1.15rem/1.78 var(--serif);
+  color: #26313a;
+}
+
+.analysis-article-body p {
+  margin: 0 0 1.35em;
+}
+
+.analysis-article-body h2 {
+  margin: 2.2em 0 .7em;
+  font: 600 2.1rem/1.15 var(--serif);
+  color: var(--navy);
+}
+
+.analysis-article-body h3 {
+  margin: 1.8em 0 .65em;
+  font: 600 1.45rem/1.2 var(--serif);
+  color: var(--navy);
+}
+
+.analysis-article-body ul,
+.analysis-article-body ol {
+  margin: 1.2em 0 1.5em 1.4em;
+}
+
+.analysis-article-body blockquote {
+  margin: 2.2em 0;
+  padding-left: 22px;
+  border-left: 3px solid var(--gold);
+  font: italic 1.35rem/1.5 var(--serif);
+  color: var(--navy);
+}
+
+.analysis-related {
+  padding-top: 64px;
+  padding-bottom: 86px;
+  border-top: 1px solid var(--rule);
+}
+
+.analysis-related-head {
+  margin-bottom: 28px;
+}
+
+.analysis-related-head h2 {
+  margin: 5px 0 0;
+  font: 600 2.5rem/1.05 var(--serif);
+  color: var(--navy);
+}
+
+.analysis-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.analysis-related-item {
+  padding-top: 18px;
+  border-top: 2px solid var(--navy);
+}
+
+.analysis-related-label {
+  margin-bottom: 10px;
+  color: var(--gold);
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+.analysis-related-item h3 {
+  margin: 0 0 10px;
+  font: 600 1.65rem/1.12 var(--serif);
+}
+
+.analysis-related-item h3 a {
+  text-decoration: none;
+}
+
+.analysis-related-meta {
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+@media (max-width: 900px) {
+  .analysis-related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .analysis-article-header {
+    padding-top: 58px;
+    padding-bottom: 42px;
+  }
+
+  .analysis-article-header h1 {
+    font-size: 3rem;
+  }
+
+  .analysis-article-lead {
+    font-size: 1.08rem;
+    margin-top: 22px;
+  }
+
+  .analysis-article-meta {
+    margin-top: 22px;
+  }
+
+  .analysis-article-content {
+    padding-bottom: 64px;
+  }
+
+  .analysis-article-body {
+    font-size: 1.06rem;
+    line-height: 1.72;
+  }
+
+  .analysis-article-body h2 {
+    font-size: 1.85rem;
+  }
+
+  .analysis-article-body h3 {
+    font-size: 1.35rem;
+  }
+
+  .analysis-related {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+}
+/* =========================================
+   V2 – SLUTLIGA MOBILREGLER FÖR HEADER/FOOTER
+   ========================================= */
+
+@media (max-width: 640px) {
+
+  /* HEADER */
+
+  .masthead {
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  /* FOOTER */
+
+  .site-footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .site-footer-col {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-footer-brand {
+    order: 1;
+  }
+
+  .site-footer-business-col {
+    order: 2;
+  }
+
+  .site-footer-write {
+    order: 3;
+  }
+
+  .site-footer-follow {
+    order: 4;
+  }
+
+  .site-footer-business-col,
+  .site-footer-write,
+  .site-footer-follow {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,.32);
+  }
+
+  .site-footer-follow .footer-social-row {
+    width: auto;
+  }
+}
