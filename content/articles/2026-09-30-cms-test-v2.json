@@ -1,0 +1,13 @@
+{
+  "published": false,
+  "title": "CMS-test V2",
+  "publish_date": "2026-09-30",
+  "type": "Analys",
+  "topic": "EU-rätt",
+  "author": "Max Eriksson",
+  "excerpt": "Detta är ett test av Marknadssamfundets nya publiceringssystem.",
+  "tags": [
+    "EU-rätt"
+  ],
+  "body": "<p>hejhop. test. ska se ifall det funkar</p>"
+}
