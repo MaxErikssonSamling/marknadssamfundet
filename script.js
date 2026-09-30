@@ -47,3 +47,19 @@ if ('IntersectionObserver' in window) {
 // Öppna arkivet med ett typfilter, t.ex. arkiv.html?typ=rapport.
 const typeParam=new URLSearchParams(location.search).get('typ');
 if(typeParam&&filters.length){const target=filters.find(btn=>btn.dataset.filter===typeParam.toLocaleLowerCase('sv'));if(target){filters.forEach(b=>b.classList.remove('active'));target.classList.add('active');current=target.dataset.filter;applyArchive();}}
+/* Trade – reveal on scroll */
+document.querySelectorAll(".trade-reveal").forEach((element) => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    },
+    {
+      threshold: 0.18
+    }
+  );
+
+  observer.observe(element);
+});
