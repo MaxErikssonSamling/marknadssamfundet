@@ -15,7 +15,6 @@ media:
     categories: [document]
     rename: safe
 
-content:
  content:
   - name: analyses
     label: Analyser
