@@ -1,6 +1,6 @@
 media:
   - name: article_images
-    label: Artikelbilder
+    label: Bilder
     input: assets/uploads
     output: /assets/uploads
     extensions: [jpg, jpeg, png, webp]
@@ -16,8 +16,9 @@ media:
     rename: safe
 
 content:
-  - name: publications
-    label: Publiceringar
+ content:
+  - name: analyses
+    label: Analyser
     type: collection
     path: content/articles
     format: json
@@ -32,7 +33,7 @@ content:
       delete: true
 
     view:
-      fields: [title, published, publish_date, type, author]
+      fields: [title, published, publish_date, topic, author]
       primary: title
       sort: [publish_date, title]
       search: [title, excerpt, author, topic, tags]
@@ -45,7 +46,7 @@ content:
         label: Publicerad
         type: boolean
         default: false
-        description: "Av = utkast. Slå på och spara när texten ska visas på webbplatsen."
+        description: "Av = utkast. Slå på och spara när analysen ska publiceras på webbplatsen."
 
       - name: title
         label: Rubrik
@@ -58,21 +59,27 @@ content:
         required: true
 
       - name: type
-        label: Typ av publicering
+        label: Publikationstyp
+        type: select
+        required: true
+        default: Analys
+        options:
+          values: [Analys]
+
+      - name: topic
+        label: Rättsområde
         type: select
         required: true
         options:
-          values: [Rapport, Analys, Opinion, Reportage, Kommentar]
-
-      - name: topic
-        label: Huvudämne
-        type: string
-        required: true
+          values:
+            - EU-rätt
+            - Svensk affärsrätt
 
       - name: author
         label: Författare
         type: string
         required: true
+        default: Max Eriksson
 
       - name: excerpt
         label: Ingress
@@ -80,36 +87,25 @@ content:
         required: true
 
       - name: hero_image
-        label: Huvudbild
+        label: Bild
         type: image
-        required: true
         options:
           media: article_images
+        description: "Valfritt. Använd endast bild när den tillför något till analysen."
 
       - name: hero_alt
         label: Bildbeskrivning
         type: text
-        required: true
-
-      - name: cover_image
-        label: Rapportomslag
-        type: image
-        options:
-          media: article_images
-
-      - name: pdf
-        label: Rapport som PDF
-        type: file
-        options:
-          media: documents
+        description: "Fylls i om analysen har en bild."
 
       - name: tags
-        label: Sökord / taggar
+        label: Sökord
         type: string
         list: true
+        description: "Valfritt. Exempel: inre marknaden, konkurrens, avtalsrätt."
 
       - name: body
-        label: Artikeltext
+        label: Analystext
         type: rich-text
         required: true
         options:
