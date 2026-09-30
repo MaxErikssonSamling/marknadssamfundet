@@ -80,7 +80,7 @@ def load_articles():
             continue
         if data.get("published") is not True:
             continue
-        required = ["title", "publish_date", "type", "topic", "author", "excerpt", "hero_image", "hero_alt", "body"]
+        required = ["title", "publish_date", "type", "topic", "author", "excerpt", "body"]
         missing = [key for key in required if not data.get(key)]
         if missing:
             print(f"VARNING: {path.name} hoppas över, saknar: {', '.join(missing)}")
@@ -104,9 +104,7 @@ def header(active="", latest=None):
     def nav(label, href, key):
         cls = ' class="active"' if active == key else ''
         return f'<a href="{href}"{cls}>{label}</a>'
-    top = f'''<header class="masthead"><div class="wrap identity"><a href="index.html" aria-label="Marknadssamfundet, startsida"><img src="assets/mark-icon.png" alt=""></a><div class="identity-copy"><div class="identity-name">Marknadssamfundet</div><div class="identity-tagline">Rätt väg. Rätt marknad.</div></div></div><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Meny</button><nav id="main-nav" class="main-nav wrap" aria-label="Huvudmeny">{nav('Hem','index.html','home')}{nav('Om oss','om.html','about')}{nav('Institute','institute.html','archive')}{nav('Trade','trade.html','shop')}</nav></header>'''
-    if latest:
-        top += f'<div class="newsline"><div class="wrap"><strong>Senaste</strong><a href="{esc(latest["_url"])}">{esc(latest["title"])}</a></div></div>'
+    top = f'''<header class="masthead"><div class="wrap identity"><a href="index.html" aria-label="Marknadssamfundet, startsida"><img src="assets/mark-icon.png" alt=""></a><div class="identity-copy"><div class="identity-name">Marknadssamfundet</div><div class="identity-tagline">Rätt väg. Rätt marknad.</div></div></div><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Meny</button><nav id="main-nav" class="main-nav wrap" aria-label="Huvudmeny">{nav('Hem','index.html','home')}{nav('Om oss','om.html','about')}{nav('Institute','institute.html','institute')}{nav('Trade','trade.html','shop')}</nav></header>'''
     return top
 
 
@@ -175,8 +173,13 @@ def footer():
 </html>'''
 def image_tag(a, cls="", use_cover=False):
     image = a.get("cover_image") if use_cover and a.get("cover_image") else a.get("hero_image")
-    alt = a.get("cover_alt") if use_cover and a.get("cover_image") else a.get("hero_alt")
+
+    if not image:
+        return ""
+
+    alt = a.get("cover_alt") if use_cover and a.get("cover_image") else a.get("hero_alt", "")
     class_attr = f' class="{esc(cls)}"' if cls else ''
+
     return f'<img src="{esc(asset_path(image))}" alt="{esc(alt)}"{class_attr}>'
 def empty_state():
     return '''<main class="page"><section class="wrap empty-state"><span class="kicker">Marknadssamfundet</span><h1>Inga publiceringar ännu</h1><p class="lead">Marknadssamfundets rapporter, analyser, opinionstexter och reportage kommer att publiceras här.</p></section></main>'''
@@ -379,54 +382,280 @@ def build_index(articles):
     return "".join(parts)
 def build_archive(articles):
     latest = articles[0] if articles else None
-    parts=[head("Rapporter & artiklar"), header("archive", latest), '<main class="page"><div class="wrap"><header class="archive-header"><span class="kicker">Arkiv</span><h1>Rapporter & artiklar</h1><p class="lead">Sök bland Marknadssamfundets rapporter, analyser, opinionstexter och reportage.</p></header>']
+
+    parts = [
+        head(
+            "Analyser",
+            "Marknadssamfundet Institute publicerar kvalificerade juridiska analyser av frågor som rör företagande, handel och marknadens rättsliga villkor."
+        ),
+        header("institute", latest),
+        '''
+        <main class="page analysis-archive">
+
+          <section class="wrap analysis-archive-hero">
+            <span class="kicker">Marknadssamfundet Institute</span>
+            <h1>Analyser</h1>
+            <p class="lead">
+              Marknadssamfundet Institute publicerar kvalificerade juridiska
+              analyser av frågor som rör företagande, handel och marknadens
+              rättsliga villkor.
+            </p>
+          </section>
+        '''
+    ]
+
     if not articles:
-        parts.append('<section class="archive-empty"><h2>Inga publiceringar ännu</h2><p>Arkivet fylls automatiskt när den första publiceringen går live.</p></section></div></main>')
+        parts.append(
+            '''
+            <section class="wrap analysis-archive-empty">
+              <span class="kicker">Analys</span>
+              <h2>Den första analysen publiceras snart</h2>
+              <p>
+                Marknadssamfundet Institute publicerar löpande analyser inom
+                EU-rätt och svensk affärsrätt.
+              </p>
+            </section>
+            </main>
+            '''
+        )
         parts.append(footer())
         return "".join(parts)
-    types=[]
+
+    areas = []
     for a in articles:
-        t=a.get('type')
-        if t and t not in types: types.append(t)
-    parts.append('<section class="search-box"><label for="search">Sök i arkivet</label><input id="search" type="search" placeholder="Sök t.ex. skatter, bostäder, EU eller företagande…" autocomplete="off"><div class="filters"><button class="filter active" data-filter="alla">Alla</button>')
-    for t in types:
-        parts.append(f'<button class="filter" data-filter="{esc(t.lower())}">{esc(t)}</button>')
-    parts.append('</div></section><section class="archive-list">')
+        area = str(a.get("topic", "")).strip()
+        if area and area not in areas:
+            areas.append(area)
+
+    parts.append(
+        '''
+        <section class="wrap analysis-tools">
+          <div class="analysis-search">
+            <label for="search">Sök bland analyser</label>
+            <input
+              id="search"
+              type="search"
+              placeholder="Sök efter ämne, rättsfråga eller begrepp…"
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="analysis-filters" aria-label="Filtrera efter rättsområde">
+            <span class="analysis-filter-label">Rättsområden</span>
+            <div class="filters">
+              <button class="filter active" data-filter="alla">Alla</button>
+        '''
+    )
+
+    for area in areas:
+        parts.append(
+            f'<button class="filter" data-filter="{esc(area.lower())}">{esc(area)}</button>'
+        )
+
+    parts.append(
+        '''
+            </div>
+          </div>
+        </section>
+
+        <section class="wrap analysis-list">
+        '''
+    )
+
     for a in articles:
-        search_text=' '.join([a.get('title',''),a.get('topic',''),a.get('author',''),a.get('excerpt',''),' '.join(a.get('tags') or [])])
-        parts.append(f'''<article class="archive-item" data-type="{esc(a['type'].lower())}" data-search="{esc(search_text)}"><a class="archive-thumb" href="{esc(a['_url'])}">{image_tag(a)}</a><div><span class="tag">{esc(a['type'])}</span><h2><a href="{esc(a['_url'])}">{esc(a['title'])}</a></h2><p>{esc(a['excerpt'])}</p></div><div class="meta">{full_date(a['_date'])}</div></article>''')
-    parts.append('</section><p id="no-results" class="no-results" hidden>Inga träffar. Prova ett annat sökord eller filter.</p></div></main>')
+        area = str(a.get("topic", "")).strip()
+        search_text = " ".join([
+            a.get("title", ""),
+            area,
+            a.get("author", ""),
+            a.get("excerpt", ""),
+            " ".join(a.get("tags") or [])
+        ])
+
+        parts.append(
+            f'''
+            <article
+              class="archive-item analysis-list-item"
+              data-type="{esc(area.lower())}"
+              data-search="{esc(search_text)}"
+            >
+              <div class="analysis-list-content">
+                <div class="analysis-list-label">
+                  <span>Analys</span>
+                  <span aria-hidden="true">·</span>
+                  <span>{esc(area)}</span>
+                </div>
+
+                <h2>
+                  <a href="{esc(a['_url'])}">{esc(a['title'])}</a>
+                </h2>
+
+                <p class="analysis-list-excerpt">
+                  {esc(a['excerpt'])}
+                </p>
+
+                <div class="analysis-list-meta">
+                  {esc(a['author'])}
+                  <span aria-hidden="true">·</span>
+                  {full_date(a['_date'])}
+                  <span aria-hidden="true">·</span>
+                  {a['_minutes']} min läsning
+                </div>
+              </div>
+
+              <a class="analysis-list-link" href="{esc(a['_url'])}">
+                Läs analysen <span aria-hidden="true">→</span>
+              </a>
+            </article>
+            '''
+        )
+
+    parts.append(
+        '''
+        </section>
+
+        <p id="no-results" class="wrap no-results" hidden>
+          Inga analyser matchar din sökning.
+        </p>
+
+        </main>
+        '''
+    )
+
     parts.append(footer())
+
     return "".join(parts)
 
 
 def build_article(a, articles):
-    body = normalize_body_assets(a.get('body',''))
-    # Give the first normal paragraph the v4 drop-cap treatment.
-    body = re.sub(r'<p(\s[^>]*)?>', lambda m: '<p class="dropcap"'+(m.group(1) or '')+'>', body, count=1, flags=re.I)
-    related = [x for x in articles if x['_url'] != a['_url'] and (x.get('topic') == a.get('topic') or x.get('type') == a.get('type'))][:2]
+    body = normalize_body_assets(a.get('body', ''))
+
+    area = str(a.get('topic', '')).strip()
+    label = 'Analys' + (f' · {area}' if area else '')
+
+    related = [
+        x for x in articles
+        if x['_url'] != a['_url']
+        and str(x.get('topic', '')).strip() == area
+    ][:2]
+
     if len(related) < 2:
         for x in articles:
             if x['_url'] != a['_url'] and x not in related:
                 related.append(x)
-                if len(related) == 2: break
-    tags='<br>'.join(esc(t) for t in (a.get('tags') or []))
-    pdf=''
+                if len(related) == 2:
+                    break
+
+    pdf = ''
     if a.get('pdf'):
-        pdf=f'<p><a class="story-link" href="{esc(asset_path(a["pdf"]))}">Ladda ned PDF →</a></p>'
-    rel_html=''
-    for r in related:
-        rel_html += f'<h3><a href="{esc(r["_url"])}">{esc(r["title"])}</a></h3><p>{esc(r["type"])} · {full_date(r["_date"])}</p>'
-    return ''.join([
-        head(a['title'], a.get('excerpt','')),
-        header('archive', articles[0] if articles else None),
-        f'''<main><header class="article-header wrap"><span class="kicker">{esc(a['type'])}</span><h1>{esc(a['title'])}</h1><p class="lead">{esc(a['excerpt'])}</p><div class="byline">{esc(a['author'])} · {full_date(a['_date'])} · {a['_minutes']} min läsning</div></header><figure class="article-hero wrap">{image_tag(a)} </figure><div class="wrap article-layout"><aside class="article-aside"><strong>Ämne</strong>{esc(a['topic'])}''',
-        (f'<br><br><strong>Taggar</strong>{tags}' if tags else ''),
-        pdf,
-        f'''</aside><article class="article-body">{body}</article><aside class="related"><span class="tag">Relaterat</span>{rel_html}</aside></div></main>''',
+        pdf = (
+            f'<a class="analysis-pdf-link" href="{esc(asset_path(a["pdf"]))}">'
+            'Ladda ned PDF <span aria-hidden="true">↗</span></a>'
+        )
+
+    hero = image_tag(a)
+    hero_html = (
+        f'<figure class="analysis-article-hero wrap">{hero}</figure>'
+        if hero else ''
+    )
+
+    related_html = ''
+    if related:
+        items = []
+
+        for r in related:
+            r_area = str(r.get('topic', '')).strip()
+            r_label = 'Analys' + (f' · {r_area}' if r_area else '')
+
+            items.append(
+                f'''
+                <article class="analysis-related-item">
+                  <div class="analysis-related-label">
+                    {esc(r_label)}
+                  </div>
+
+                  <h3>
+                    <a href="{esc(r["_url"])}">
+                      {esc(r["title"])}
+                    </a>
+                  </h3>
+
+                  <div class="analysis-related-meta">
+                    {full_date(r["_date"])} · {r["_minutes"]} min läsning
+                  </div>
+                </article>
+                '''
+            )
+
+        related_html = f'''
+        <section class="wrap analysis-related">
+
+          <div class="analysis-related-head">
+            <span class="kicker">Institute</span>
+            <h2>Fler analyser</h2>
+          </div>
+
+          <div class="analysis-related-grid">
+            {''.join(items)}
+          </div>
+
+        </section>
+        '''
+
+    return '\n'.join([
+        head(a['title'], a.get('excerpt', '')),
+
+        header(
+            'institute',
+            articles[0] if articles else None
+        ),
+
+        f'''
+        <main class="analysis-article-page">
+
+          <header class="wrap analysis-article-header">
+
+            <div class="analysis-article-label">
+              {esc(label)}
+            </div>
+
+            <h1>
+              {esc(a['title'])}
+            </h1>
+
+            <p class="analysis-article-lead">
+              {esc(a.get('excerpt', ''))}
+            </p>
+
+            <div class="analysis-article-meta">
+              <span>{esc(a['author'])}</span>
+              <span aria-hidden="true">·</span>
+              <span>{full_date(a['_date'])}</span>
+              <span aria-hidden="true">·</span>
+              <span>{a['_minutes']} min läsning</span>
+            </div>
+
+            {pdf}
+
+          </header>
+
+          {hero_html}
+
+          <div class="wrap analysis-article-content">
+
+            <article class="analysis-article-body">
+              {body}
+            </article>
+
+          </div>
+
+          {related_html}
+
+        </main>
+        ''',
+
         footer()
     ])
-
 
 def build_redirect():
     return '''<!doctype html><html lang="sv"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=arkiv.html"><title>Marknadssamfundet</title></head><body><p><a href="arkiv.html">Fortsätt till Rapporter & artiklar</a></p></body></html>'''
